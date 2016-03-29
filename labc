@@ -1,0 +1,85 @@
+// Lucas Brendel 
+// AP Computer Science
+
+import java.util.*;
+import java.io.*;
+public class LabC
+{
+    public static void main(String[] args)
+    {
+        
+        ArrayList w = new ArrayList();
+        Scanner ui = new Scanner(System.in);
+        
+        System.out.print("How many words would you like to test?: ");
+        final int NUM = ui.nextInt();
+        System.out.println();
+        
+        System.out.println("Which words would you like to test? (please press enter between words)");
+        for(int g = 0; g < NUM; g++)
+        {
+            w.add(ui.next());
+        }
+        System.out.println();
+        
+        System.out.println("These are your words: " + w);
+        System.out.println();
+        
+        for(int i = 0; i < w.size(); i++)
+        {
+            int v = 0;
+            String a = (w.get(i)).toString();
+            for(int x = 0; x < a.length(); x++)
+            {
+                if(a.substring(x,x+1).equals("a") ||
+                   a.substring(x,x+1).equals("e") || 
+                   a.substring(x,x+1).equals("i") || 
+                   a.substring(x,x+1).equals("o") || 
+                   a.substring(x,x+1).equals("u")   )
+                   {
+                    v = v + 1;
+                   }
+                   
+                if(a.substring(x,x+1).equals("A") || 
+                   a.substring(x,x+1).equals("E") || 
+                   a.substring(x,x+1).equals("I") || 
+                   a.substring(x,x+1).equals("O") || 
+                   a.substring(x,x+1).equals("U")   )
+                   {
+                    v = v + 1;
+                   }
+                   
+                if(x == a.length() - 1)
+                {
+                    System.out.print(a + " has " + v + " vowels, ");
+                    System.out.println((x +1) + " characters");
+                }
+            }
+        }
+        
+        System.out.println();
+        ArrayList n = new ArrayList();
+        
+        String longest = (w.get(0).toString());
+        String shortest = (w.get(0).toString());
+        
+        for(int z = 0; z < w.size(); z++)
+        {
+            String a = (w.get(z)).toString();
+            if(a.length() > longest.length()) 
+            { 
+                longest = a;
+            }
+            if(a.length() < shortest.length())
+            { 
+                shortest = a;
+            }
+            if(a.length() != 3)
+            {
+                n.add(a);
+            }
+        }
+        System.out.println("The longest word is " + longest + " and the shortest word is " + shortest);
+        System.out.println("These are the words that do not have three letters: " + n); 
+    }
+}
